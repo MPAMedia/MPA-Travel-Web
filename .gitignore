@@ -6,3 +6,5 @@ e2e_test.*
 node_modules/
 # Ignore npm/yarn debug log
 npm-debug.log
+bower_components/
+.tmp

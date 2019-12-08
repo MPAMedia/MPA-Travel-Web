@@ -1,0 +1,47 @@
+<div id="wrapper" class="container" style="background-image: url('styles/assets/bg_body.jpg'); background-position: center center;
+    background-size: cover;
+    height: auto;
+    left: 0;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 0;
+    width: auto;">
+    <div class="row">
+        <div align="center" style="padding-top: 5%;">
+            <img src="styles/assets/logo2.svg">
+        </div>
+        <div align="center">
+            <div class="login-panel panel panel-default" style="width: 300px;">
+                <div class="panel-heading" align="left">
+                    <h3 class="panel-title">Please Login</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" ng-submit="login()">
+                        <fieldset>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="E-mail" name="email" type="email" ng-model="username" required autofocus ng-disabled="dataLoading">
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control" placeholder="Password" name="password" type="password" value="" ng-model="password" required ng-disabled="dataLoading">
+                            </div>
+                            <div class="checkbox" align="left">
+                                <label class="control control--checkbox"><span style="font-size: 14px;">&nbsp;&nbsp;&nbsp;Remember Me</span>
+                                    <input name="remember" type="checkbox" value="Remember Me" ng-disabled="dataLoading" ng-model="rememberMe" />
+                                    <div class="control__indicator"></div>
+                                </label>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <button type="submit" class="btn btn-lg btn-primary btn-block" ng-disabled="dataLoading">Login</button>
+                        </fieldset>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="form-group col-lg-12">
+        <label>Images <span style="color: #E74645;">*</span></label>
+        <mdr-file url="" model="files" size="0.3" formats="'jpg,png,svg,gif'" limit="10" multiple="true"></mdr-file>
+        <p class="help-block"> Note: max-size = 300kb</p>
+    </div> -->
+</div>

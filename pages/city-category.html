@@ -1,0 +1,84 @@
+<div id="wrapper" style="min-height: 660px; padding-bottom: 20px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">City - Categories</h1>
+        </div>
+        <div class="col-lg-3">
+            <div class="form-group">
+                <label>Select City</label>
+                <select class="form-control" ng-model="citykey" ng-change="onChangedCity()">
+                    <option ng-repeat="city in cities" value="{{city.key}}">{{city.val().name}}</option>
+                </select>
+            </div>
+        </div>
+        <!-- /.col-lg-12 -->
+        <div class="col-lg-12">
+            <!-- /.panel-heading -->
+            <table width="100%" class="table table-striped table-bordered table-hover" datatable="ng" dt-column-defs="dtColumnDefs" dt-options="dtOptions">
+                <thead>
+                    <tr>
+                        <th width="50px">No.</th>
+                        <th>Category Name</th>
+                        <th>Order</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="odd gradeX" ng-repeat="citycat in city_categories">
+                        <td>{{$index + 1}}</td>
+                        <td>{{citycat.name}}</td>
+                        <td width="60px">
+                            <label style="width: 15px; margin: 0px; height: 25px;"><span style="color: #E74645;">{{citycat.val.order ? citycat.val.order : 0}}</span></label>
+                            <input id="{{'inputOrder' + $index}}" ng-value="{{citycat.val.order ? citycat.val.order : 0}}" my-enter="changeCityCatOrder($index)" style="margin: 0px; height: 25px; text-align: left; padding: 0px; width: 40px;">
+                        </td>
+                        <td width="120px">
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="removekey(citycat.val.category_key)">Remove</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" ng-click="chooseCategory()" ng-disabled="citykey === null">Choose More Category</button>
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Choose More Category</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table width="100%" selectable>
+                                <tr ng-repeat="info in categoryInfos">
+                                    <!-- <td width="25px;">
+                                        <input type="checkbox" ng-model="selected[info.key]" ng-disabled="existed[info.key]">
+                                    </td>
+                                    <td>
+                                        <span>{{info.val().name}}</span>
+                                    </td> -->
+                                    <td>
+                                        <label class="control control--checkbox"><span style="font-size: 15px;">{{info.val().name}}</span>
+                                            <input type="checkbox" ng-model="selected[info.key]" ng-disabled="existed[info.key]"/>
+                                            <div class="control__indicator"></div>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close()">Close</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="save()">Save Changes</button>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+                <!-- /.modal-dialog -->
+            </div>
+            <!-- /.modal -->
+            <!-- /.table-responsive -->
+            <!-- /.panel-body -->
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+</div>

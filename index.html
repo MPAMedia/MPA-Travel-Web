@@ -1,0 +1,130 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+    <meta charset="utf-8">
+    <title>Trid City Guide | Admin Tools</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Bootstrap Core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link href="dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- bootstrap select -->
+    <link href="vendor/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" type="text/css">
+    <!-- end bootstrap select -->
+    <!-- drop zone -->
+    <link href="vendor/mdr-file/mdr-file.min.css" rel="stylesheet" type="text/css">
+    <!-- angular data tables -->
+    <link rel="stylesheet" href="vendor/datatables/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="vendor/angular-datatables/css/angular-datatables.min.css">
+    <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/timeline.css">
+    <link rel="stylesheet" href="styles/custom.css">
+    <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.min.css">
+    <!-- endbuild -->
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        // ---------- CONFIG TRID ----------
+        var config = {
+            apiKey: "AIzaSyAHt0ckWi8WbpGB4F0DJG7Ia4NFetaAOe4",
+            authDomain: "tridme-demo.firebaseapp.com",
+            databaseURL: "https://tridme-demo.firebaseio.com",
+            projectId: "tridme-demo",
+            storageBucket: "tridme-demo.appspot.com",
+            messagingSenderId: "1022562414450"
+        };
+        // -----------------------------------
+
+        firebase.initializeApp(config);
+    </script>
+    <!-- ***************************************************************** -->
+
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-XXXXX-X');
+        ga('send', 'pageview');
+    </script>
+    <!-- jQuery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="dist/js/sb-admin-2.js"></script>
+    <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+    <script src="bower_components/angular-loading-bar/build/loading-bar.min.js"></script>
+    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <script src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- drop file input -->
+    <script src="vendor/mdr-file/mdr-file.js"></script>
+    <!-- data tables -->
+    <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="vendor/angular-datatables/angular-datatables.min.js"></script>
+
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/apptay3lo.js"></script>
+    <script src="scripts/utils.js"></script>
+    <script src="scripts/services/authen.service.js"></script>
+    <script src="scripts/services/alert.service.js"></script>
+    <script src="scripts/services/language.service.js"></script>
+    <script src="scripts/services/country.service.js"></script>
+    <script src="scripts/services/city.service.js"></script>
+    <script src="scripts/services/city.category.service.js"></script>
+    <script src="scripts/services/category_info.service.js"></script>
+    <script src="scripts/services/facility.service.js"></script>
+    <script src="scripts/services/place.service.js"></script>
+    <script src="scripts/services/tag.service.js"></script>
+    <script src="scripts/services/facility.service.js"></script>
+    <script src="scripts/services/sub.category.service.js"></script>
+    <script src="scripts/services/city.place.service.js"></script>
+    <script src="scripts/services/user.service.js"></script>
+    <script src="scripts/services/comment.service.js"></script>
+    <script src="scripts/storage/my.storage.js"></script>
+    <script src="scripts/shared.service.js"></script>
+
+    <!-- endbuild -->
+    <!-- bootstrap select -->
+    <script src="vendor/bootstrap-select/js/bootstrap-select.min.js"></script>
+    <!-- <script src="vendor/angular-bootstrap-select/angular-bootstrap-select.js"></script> -->
+    <!-- end bootstrap select -->
+</head>
+
+<body>
+    <div ng-app="tay3lo-admin">
+        <div ui-view></div>
+    </div>
+</body>
+
+</html>

@@ -7,7 +7,16 @@
     FacilityController.$inject = ['$scope', '$rootScope', '$state', 'FacilityService', 'DTOptionsBuilder', 'DTColumnDefBuilder']; // jshint
     function FacilityController($scope, $rootScope, $state, FacilityService, DTOptionsBuilder, DTColumnDefBuilder) {
         $scope.facilities = [];
-        $scope.new_facility = "";
+        // $scope.new_facility = "";
+        $scope.new_facility_en = "";
+        $scope.new_facility_fr = "";
+        $scope.new_facility_it = "";
+        $scope.new_facility_nl = "";
+        $scope.new_facility_ru = "";
+        $scope.new_facility_ar = "";
+        $scope.new_facility_swiss_fr = "";
+        $scope.new_facility_swiss_it = "";
+        $scope.new_facility_swiss_nl = "";
         $scope.key = null;
         // datatables options
         $scope.dtOptions = DTOptionsBuilder.newOptions().withDOM('C<"clear">lfrtip');
@@ -32,17 +41,46 @@
         })();
 
         $scope.close = function(){
-            $scope.new_facility = "";
+            // $scope.new_facility = "";
+            $scope.new_facility_en = "";
+            $scope.new_facility_fr = "";
+            $scope.new_facility_it = "";
+            $scope.new_facility_nl = "";
+            $scope.new_facility_ru = "";
+            $scope.new_facility_ar = "";
+            $scope.new_facility_swiss_fr = "";
+            $scope.new_facility_swiss_it = "";
+            $scope.new_facility_swiss_nl = "";
             $scope.key = null;
         };
 
         $scope.save = function(){
-            if ($scope.new_facility === null || $scope.new_facility === "") {
+            if ($scope.new_facility_en === null || $scope.new_facility_en === "") {
                 alert('Name cannot be empty!')
                 return;
             }
-            FacilityService.AddFacility($scope.key, $scope.new_facility);
-            $scope.new_facility = "";
+            var params ={};
+            params.name_en = $scope.new_facility_en;
+            params.name_fr = $scope.new_facility_fr;
+            params.name_it = $scope.new_facility_it;
+            params.name_nl = $scope.new_facility_nl;
+            params.name_ru = $scope.new_facility_ru;
+            params.name_ar = $scope.new_facility_ar;
+            params.name_swiss_fr = $scope.new_facility_swiss_fr;
+            params.name_swiss_it = $scope.new_facility_swiss_it;
+            params.name_swiss_nl = $scope.new_facility_swiss_nl;
+
+            FacilityService.AddFacility($scope.key, params);
+            // $scope.new_facility = "";
+            $scope.new_facility_en = "";
+            $scope.new_facility_fr = "";
+            $scope.new_facility_it = "";
+            $scope.new_facility_nl = "";
+            $scope.new_facility_ru = "";
+            $scope.new_facility_ar = "";
+            $scope.new_facility_swiss_fr = "";
+            $scope.new_facility_swiss_it = "";
+            $scope.new_facility_swiss_nl = "";
             $scope.key = null;
             $('#myModal').modal('hide');
         };

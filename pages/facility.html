@@ -10,7 +10,16 @@
                 <thead>
                     <tr>
                         <th width="50px">No.</th>
-                        <th>Name</th>
+                        <!-- <th>Name</th> -->
+                        <th>Name En</th>
+                        <th>Name Fr</th>
+                        <th>Name IT</th>
+                        <th>Name NL</th>
+                        <th>Name RU</th>
+                        <th>Name AR</th>
+                        <th>Name Fr Swiss</th>
+                        <th>Name IT Swiss</th>
+                        <th>Name NL Swiss</th>
                         <th width="50px">Type</th>
                         <th>Action</th>
                     </tr>
@@ -18,7 +27,16 @@
                 <tbody>
                     <tr class="odd gradeX" ng-repeat="facility in facilities">
                         <td>{{$index + 1}}</td>
-                        <td>{{facility.val().name}}</td>
+                        <!-- <td>{{facility.val().name}}</td> -->
+                        <td>{{facility.val().name_en}}</td>
+                        <td>{{facility.val().name_fr}}</td>
+                        <td>{{facility.val().name_it}}</td>
+                        <td>{{facility.val().name_nl}}</td>
+                        <td>{{facility.val().name_ru}}</td>
+                        <td>{{facility.val().name_ar}}</td>
+                        <td>{{facility.val().name_swiss_fr}}</td>
+                        <td>{{facility.val().name_swiss_it}}</td>
+                        <td>{{facility.val().name_swiss_nl}}</td>
                         <td>{{facility.val().type}}</td>
                         <td width="120px">
                             <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" ng-click="edit($index)">Edit</button>
@@ -38,10 +56,47 @@
                             <h4 class="modal-title" id="myModalLabel" ng-show="key != null">Edit Facility ({{key}})</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group" style="width: 300px">
+                            <!-- <div class="form-group" style="width: 300px">
                                 <label>Name</label>
                                 <input id="inputName" class="form-control" ng-model="new_facility">
+                            </div> -->
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name En</label>
+                                <input id="inputNameEn" class="form-control" ng-model="new_facility_en" takefocus>
                             </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name Fr</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_facility_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name IT</label>
+                                <input id="inputNameIt" class="form-control" ng-model="new_facility_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name NL</label>
+                                <input id="inputNameNl" class="form-control" ng-model="new_facility_nl" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name RU</label>
+                                <input id="inputNameRu" class="form-control" ng-model="new_facility_ru" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name AR</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_facility_ar" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name Fr Swiss</label>
+                                <input id="inputNameFrSwiss" class="form-control" ng-model="new_facility_swiss_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name IT Swiss</label>
+                                <input id="inputNameItSwiss" class="form-control" ng-model="new_facility_swiss_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Name NL Swiss</label>
+                                <input id="inputNameNlSwiss" class="form-control" ng-model="new_facility_swiss_nl" takefocus>
+                            </div>
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="close()">Close</button>

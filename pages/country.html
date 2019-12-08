@@ -10,14 +10,32 @@
                 <thead>
                     <tr>
                         <th width="50px">No.</th>
-                        <th>Country Name</th>
+                        <th>Country Name En</th>
+                        <th>Country Name Fr</th>
+                        <th>Country Name IT</th>
+                        <th>Country Name NL</th>
+                        <th>Country Name RU</th>
+                        <th>Country Name AR</th>
+                        <th>Country Name Fr Swiss</th>
+                        <th>Country Name IT Swiss</th>
+                        <th>Country Name NL Swiss</th>
+                        
+
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr class="odd gradeX" ng-repeat="country in countries">
                         <td>{{$index+1}}</td>
-                        <td>{{country.val().name}}</td>
+                        <td>{{country.val().name_en}}</td>
+                        <td>{{country.val().name_fr}}</td>
+                        <td>{{country.val().name_it}}</td>
+                        <td>{{country.val().name_nl}}</td>
+                        <td>{{country.val().name_ru}}</td>
+                        <td>{{country.val().name_ar}}</td>
+                        <td>{{country.val().name_swiss_fr}}</td>
+                        <td>{{country.val().name_swiss_it}}</td>
+                        <td>{{country.val().name_swiss_nl}}</td>
                         <td style="width: 100px;">
                             <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" ng-click="edit($index)" style="margin-right: 10px;">Edit</button>
                             <button type="button" class="btn btn-danger btn-xs" ng-click="deleteAtIndex($index)">Delete</button>
@@ -37,9 +55,42 @@
                         </div>
                         <div class="modal-body">
                             <div class="form-group" style="width: 320px; min-width: 200px;">
-                                <label>Country Name</label>
-                                <input id="inputName" class="form-control" ng-model="new_country" takefocus>
+                                <label>Country Name En</label>
+                                <input id="inputNameEn" class="form-control" ng-model="new_country_en" takefocus>
                             </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name Fr</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_country_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name IT</label>
+                                <input id="inputNameIt" class="form-control" ng-model="new_country_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name NL</label>
+                                <input id="inputNameNl" class="form-control" ng-model="new_country_nl" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name RU</label>
+                                <input id="inputNameRu" class="form-control" ng-model="new_country_ru" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name AR</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_country_ar" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name Fr Swiss</label>
+                                <input id="inputNameFrSwiss" class="form-control" ng-model="new_country_swiss_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name IT Swiss</label>
+                                <input id="inputNameItSwiss" class="form-control" ng-model="new_country_swiss_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Country Name NL Swiss</label>
+                                <input id="inputNameNlSwiss" class="form-control" ng-model="new_country_swiss_nl" takefocus>
+                            </div>
+
                             <div class="form-group" style="width: 320px; min-width: 200px;">
                                 <label>Currency Unit (Ex: VND, USD. Default: USD)</label>
                                 <input id="inputPriceUnit" class="form-control" ng-model="new_currency_unit">

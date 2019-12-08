@@ -3,25 +3,51 @@
         <div class="col-lg-12">
             <h1 class="page-header">Places</h1>
         </div>
-        <div class="col-lg-3">
+       
+        <div class="col-lg-5">
             <div class="form-group">
                 <label>Select City</label>
-                <select class="form-control" ng-change="onChangedCity()" ng-model="currentcity" ng-options="city as city.val().name for city in cities track by city.key">
+                <select class="form-control" ng-change="onChangedCity()" ng-model="currentcity" ng-options="city as 
+                    (
+                    city.val().name_en + '-' + 
+                    city.val().name_fr + '-' + 
+                    city.val().name_it + '-' + 
+                    city.val().name_nl + '-' + 
+                    city.val().name_ru + '-' + 
+                    city.val().name_ar + '-' + 
+                    city.val().name_swiss_fr + '-' + 
+                    city.val().name_swiss_it + '-' + 
+                    city.val().name_swiss_nl 
+                    )   
+                    for city in cities track by city.key">
                     <!-- <option ng-repeat="city in cities" value="{{city.key}}">{{city.val().name}}</option> -->
                 </select>
             </div>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-5">
             <div class="form-group">
                 <label>Select Categories</label>
                 <!-- <select class="form-control" ng-model="categorykey" ng-change="onchangedcategory()">
                     <option ng-repeat="category in categories" value="{{category.key}}">{{category.name}}</option>
                 </select> -->
-                <select class="form-control" ng-model="selectedCategory" ng-change="onchangedcategory(selectedCategory)" ng-options="u.name for u in categories">
+                <!-- <select class="form-control" ng-model="selectedCategory" ng-change="onchangedcategory(selectedCategory)" ng-options="u.name for u in categories"> -->
+                <select class="form-control" ng-model="selectedCategory" ng-change="onchangedcategory(selectedCategory)" ng-options="
+                (
+                    u.name_en + '-' + 
+                    u.name_fr + '-' + 
+                    u.name_it + '-' + 
+                    u.name_nl + '-' + 
+                    u.name_ru + '-' + 
+                    u.name_ar + '-' + 
+                    u.name_swiss_fr + '-' + 
+                    u.name_swiss_it + '-' + 
+                    u.name_swiss_nl 
+                )
+                for u in categories">
                 </select>
             </div>
         </div>
-        <div class="col-lg-6" align="right" style="padding-top: 25px;">
+        <div class="col-lg-2" align="right" style="padding-top: 25px;">
             <a class="btn btn-primary" ui-sref="dashboard.add-place" ng-disabled="currentcity === null">Add Place</a>
         </div>
         <!-- /.col-lg-12 -->
@@ -32,7 +58,7 @@
                     <thead>
                         <tr>
                             <th width="50px">No.</th>
-                            <th>Name</th>
+                            <th ng-repeat= "lang in supported_langs">Name {{lang.display}}</th>
                             <th>Priority</th>
                             <th>Active</th>
                             <td>Action</td>
@@ -41,7 +67,16 @@
                     <tbody>
                         <tr class="odd gradeX" ng-repeat="place in cityPlaces" ng-show="!place.val().removed">
                             <td>{{$index + 1}}</td>
-                            <td ng-click="edit($index)">{{place.val().name}}</td>
+                            <!-- <td ng-click="edit($index)">{{place.val().name}}</td> -->
+                            <td ng-click="edit($index)">{{place.val().name_en}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_fr}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_it}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_nl}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_ru}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_ar}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_swiss_fr}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_swiss_it}}</td>
+                            <td ng-click="edit($index)">{{place.val().name_swiss_nl}}</td>
                             <td width="60px">
                                 <label style="width: 15px; margin: 0px; height: 25px;"><span style="color: #E74645;">{{place.val().priority ? place.val().priority : 0}}</span></label>
                                 <input id="{{'inputPriority' + $index}}" ng-value="{{place.val().priority ? place.val().priority : 0}}" my-enter="changePriority($index)" style="margin: 0px; height: 25px; text-align: left; padding: 0px; width: 40px;">

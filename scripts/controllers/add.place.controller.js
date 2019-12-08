@@ -25,15 +25,46 @@
         // common require
         $scope.placekey = null;
         $scope.isBanner = false;
-        $scope.name = null;
+        // $scope.name = null;
+
+        $scope.name_en = null;
+        $scope.name_fr = null;
+        $scope.name_it = null;
+        $scope.name_nl = null;
+        $scope.name_ru = null;
+        $scope.name_ar = null;
+        $scope.name_swiss_fr = null;
+        $scope.name_swiss_it = null;
+        $scope.name_swiss_nl = null;
+
         $scope.address = null;
-        $scope.description = null;
+        // $scope.description = null;
+        $scope.description_en = null;
+        $scope.description_fr = null;
+        $scope.description_it = null;
+        $scope.description_nl = null;
+        $scope.description_ru = null;
+        $scope.description_ar = null;
+        $scope.description_swiss_fr = null;
+        $scope.description_swiss_it = null;
+        $scope.description_swiss_nl = null;
+
         $scope.photos = [];
         $scope.newphotos = [];
         $scope.newphotosurl = [];
         // common
         $scope.rate = null;
-        $scope.phonenumber = null;
+        // $scope.phonenumber = null;
+        $scope.phonenumber_en = null;
+        $scope.phonenumber_fr = null;
+        $scope.phonenumber_it = null;
+        $scope.phonenumber_nl = null;
+        $scope.phonenumber_ru = null;
+        $scope.phonenumber_ar = null;
+        $scope.phonenumber_swiss_fr = null;
+        $scope.phonenumber_swiss_it = null;
+        $scope.phonenumber_swiss_nl = null;
+
         $scope.email = null;
         $scope.website = null;
         $scope.facebook = null;
@@ -134,7 +165,19 @@
                 for (var j = Object.keys(child).length - 1; j >= 0; j--) {
                     var subcatkey = Object.keys(child)[j];
                     var subcat = child[subcatkey];
-                    var obj = { key: subcatkey, name: subcat.name };
+                    var obj = { 
+                        key: subcatkey, 
+                        // name: subcat.name 
+                        name_en: subcat.new_subcategory_en,
+                        name_fr: subcat.new_subcategory_fr,
+                        name_it: subcat.new_subcategory_it,
+                        name_nl: subcat.new_subcategory_nl,
+                        name_ru: subcat.new_subcategory_ru,
+                        name_ar: subcat.new_subcategory_ar,
+                        name_swiss_fr: subcat.new_subcategory_swiss_fr,
+                        name_swiss_it: subcat.new_subcategory_swiss_it,
+                        name_swiss_nl: subcat.new_subcategory_swiss_nl,
+                    };
                     array.push(obj);
                 }
                 $scope.dictSubcategories[catkey] = array;
@@ -283,15 +326,41 @@
                 // common require
                 $scope.placekey = place.key;
                 $scope.isBanner = !data.hasOwnProperty('isBanner') ? false : data.isBanner;
-                $scope.name = !data.hasOwnProperty('name') ? null : data.name;
+                $scope.name_en = !data.hasOwnProperty('name_en') ? null : data.name_en;
+                $scope.name_fr = !data.hasOwnProperty('name_fr') ? null : data.name_fr;
+                $scope.name_it = !data.hasOwnProperty('name_it') ? null : data.name_it;
+                $scope.name_nl = !data.hasOwnProperty('name_nl') ? null : data.name_nl;
+                $scope.name_ru = !data.hasOwnProperty('name_ru') ? null : data.name_ru;
+                $scope.name_ar = !data.hasOwnProperty('name_ar') ? null : data.name_ar;
+                $scope.name_swiss_fr = !data.hasOwnProperty('name_swiss_fr') ? null : data.name_swiss_fr;
+                $scope.name_swiss_it = !data.hasOwnProperty('name_swiss_it') ? null : data.name_swiss_it;
+                $scope.name_swiss_nl = !data.hasOwnProperty('name_swiss_nl') ? null : data.name_swiss_nl;
                 $scope.address = !data.hasOwnProperty('address') ? null : data.address;
-                $scope.description = !data.hasOwnProperty('description') ? null : data.description;
+                // $scope.description = !data.hasOwnProperty('description') ? null : data.description;
+                $scope.description_en = !data.hasOwnProperty('description_en') ? null : data.description_en;
+                $scope.description_fr = !data.hasOwnProperty('description_fr') ? null : data.description_fr;
+                $scope.description_it = !data.hasOwnProperty('description_it') ? null : data.description_it;
+                $scope.description_nl = !data.hasOwnProperty('description_nl') ? null : data.description_nl;
+                $scope.description_ru = !data.hasOwnProperty('description_ru') ? null : data.description_ru;
+                $scope.description_ar = !data.hasOwnProperty('description_ar') ? null : data.description_ar;
+                $scope.description_swiss_fr = !data.hasOwnProperty('description_swiss_fr') ? null : data.description_swiss_fr;
+                $scope.description_swiss_it = !data.hasOwnProperty('description_swiss_it') ? null : data.description_swiss_it;
+                $scope.description_swiss_nl = !data.hasOwnProperty('description_swiss_nl') ? null : data.description_swiss_nl;
                 $scope.photos = !data.hasOwnProperty('photos') ? [] : data.photos;
                 $scope.newphotos = [];
                 $scope.newphotosurl = [];
                 // common
                 $scope.rate = !data.hasOwnProperty('rate') ? null : data.rate;
-                $scope.phonenumber = !data.hasOwnProperty('phonenumber') ? null : data.phonenumber;
+                // $scope.phonenumber = !data.hasOwnProperty('phonenumber') ? null : data.phonenumber;
+                $scope.phonenumber_en = !data.hasOwnProperty('phonenumber_en') ? null : data.phonenumber_en;
+                $scope.phonenumber_fr = !data.hasOwnProperty('phonenumber_fr') ? null : data.phonenumber_fr;
+                $scope.phonenumber_it = !data.hasOwnProperty('phonenumber_it') ? null : data.phonenumber_it;
+                $scope.phonenumber_nl = !data.hasOwnProperty('phonenumber_nl') ? null : data.phonenumber_nl;
+                $scope.phonenumber_ru = !data.hasOwnProperty('phonenumber_ru') ? null : data.phonenumber_ru;
+                $scope.phonenumber_ar = !data.hasOwnProperty('phonenumber_ar') ? null : data.phonenumber_ar;
+                $scope.phonenumber_swiss_fr = !data.hasOwnProperty('phonenumber_swiss_fr') ? null : data.phonenumber_swiss_fr;
+                $scope.phonenumber_swiss_it = !data.hasOwnProperty('phonenumber_swiss_it') ? null : data.phonenumber_swiss_it;
+                $scope.phonenumber_swiss_nl = !data.hasOwnProperty('phonenumber_swiss_nl') ? null : data.phonenumber_swiss_nl;
                 $scope.email = !data.hasOwnProperty('email') ? null : data.email;
                 $scope.website = !data.hasOwnProperty('website') ? null : data.website;
                 $scope.facebook = !data.hasOwnProperty('facebook') ? null : data.facebook;
@@ -352,8 +421,16 @@
 
         $scope.save = function() {
             // check null
-            if (!$scope.name || !$scope.address || !$scope.description ||
-                !$scope.currentCity || !$scope.selectedCategoriesKey || $scope.selectedCategoriesKey.length <= 0 || !$scope.selectedSubCategoriesKey || $scope.selectedSubCategoriesKey.length <= 0) {
+            if (
+                !$scope.name_en || 
+                !$scope.address || 
+                !$scope.description_en ||
+                !$scope.currentCity || 
+                !$scope.selectedCategoriesKey || 
+                $scope.selectedCategoriesKey.length <= 0 || 
+                !$scope.selectedSubCategoriesKey || 
+                $scope.selectedSubCategoriesKey.length <= 0
+                ) {
                 alert('Please input all required fields');
                 return;
             }
@@ -361,7 +438,7 @@
             $scope.loading = true;
             // upload photos
             if ($scope.newphotos.length > 0) {
-                var cityname = $scope.currentCity.val().name;
+                var cityname = $scope.currentCity.val().name_en;
                 // for (var i = 0; i < $scope.cities.length; i++) {
                 //     var city = $scope.cities[i];
                 //     if (city.key === $scope.citykey) {
@@ -369,7 +446,7 @@
                 //         break;
                 //     }
                 // }
-                var path = 'place/' + cityname + '/' + $scope.name;
+                var path = 'place/' + cityname + '/' + $scope.name_en;
                 $scope.newphotosurl = [];
                 for (var i = 0; i < $scope.newphotos.length; i++) {
                     var p = $scope.newphotos[i];
@@ -400,13 +477,39 @@
             var time = (new Date()).getTime() / 1000.0;
             var param = {
                 isBanner: $scope.isBanner,
-                name: $scope.name,
+                name_en: $scope.name_en,
+                name_fr: $scope.name_fr,
+                name_it: $scope.name_it,
+                name_nl: $scope.name_nl,
+                name_ru: $scope.name_ru,
+                name_ar: $scope.name_ar,
+                name_swiss_fr: $scope.name_swiss_fr,
+                name_swiss_it: $scope.name_swiss_it,
+                name_swiss_nl: $scope.name_swiss_nl,
                 address: $scope.address,
-                description: $scope.description,
+                // description: $scope.description,
+                description_en: $scope.description_en,
+                description_fr: $scope.description_fr,
+                description_it: $scope.description_it,
+                description_nl: $scope.description_nl,
+                description_ru: $scope.description_ru,
+                description_ar: $scope.description_ar,
+                description_swiss_fr: $scope.description_swiss_fr,
+                description_swiss_it: $scope.description_swiss_it,
+                description_swiss_nl: $scope.description_swiss_nl,
                 photos: $scope.photos,
                 // common
                 rate: $scope.rate,
-                phonenumber: $scope.phonenumber,
+                // phonenumber: $scope.phonenumber,
+                phonenumber_en: $scope.phonenumber_en,
+                phonenumber_fr: $scope.phonenumber_fr,
+                phonenumber_it: $scope.phonenumber_it,
+                phonenumber_nl: $scope.phonenumber_nl,
+                phonenumber_ru: $scope.phonenumber_ru,
+                phonenumber_ar: $scope.phonenumber_ar,
+                phonenumber_swiss_fr: $scope.phonenumber_swiss_fr,
+                phonenumber_swiss_it: $scope.phonenumber_swiss_it,
+                phonenumber_swiss_nl: $scope.phonenumber_swiss_nl,
                 email: $scope.email,
                 website: $scope.website,
                 facebook: $scope.facebook,
@@ -552,9 +655,28 @@
         function clearForm() {
             // common require
             $scope.isBanner = false;
-            $scope.name = null;
+            // $scope.name = null;
+            $scope.name_en = null;
+            $scope.name_fr = null;
+            $scope.name_it = null;
+            $scope.name_nl = null;
+            $scope.name_ru = null;
+            $scope.name_ar = null;
+            $scope.name_swiss_fr = null;
+            $scope.name_swiss_it = null;
+            $scope.name_swiss_nl = null;
+
             $scope.address = null;
-            $scope.description = null;
+            // $scope.description = null;
+            $scope.description_en = null;
+            $scope.description_fr = null;
+            $scope.description_it = null;
+            $scope.description_nl = null;
+            $scope.description_ru = null;
+            $scope.description_ar = null;
+            $scope.description_swiss_fr = null;
+            $scope.description_swiss_it = null;
+            $scope.description_swiss_nl = null;
             while ($scope.photos.length > 0) {
                 $scope.photos.pop();
             }
@@ -566,7 +688,17 @@
             }
             // common
             $scope.rate = null;
-            $scope.phonenumber = null;
+            // $scope.phonenumber = null;
+            $scope.phonenumber_en = null;
+            $scope.phonenumber_fr = null;
+            $scope.phonenumber_it = null;
+            $scope.phonenumber_nl = null;
+            $scope.phonenumber_ru = null;
+            $scope.phonenumber_ar = null;
+            $scope.phonenumber_swiss_fr = null;
+            $scope.phonenumber_swiss_it = null;
+            $scope.phonenumber_swiss_nl = null;
+
             $scope.email = null;
             $scope.website = null;
             $scope.facebook = null;

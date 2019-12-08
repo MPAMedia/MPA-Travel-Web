@@ -12,7 +12,19 @@
                         <div class="col-lg-12 ">
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 " style="background-color: transparent; padding-left: 0px; ">
                                 <label>Select City<span style="color: #E74645; ">*</span></label>
-                                <select class="form-control" ng-change="onChangedCity()" ng-model="currentCity " ng-options="city as city.val().name for city in cities track by city.key " ng-disabled="isEditing() "></select>
+                                <select class="form-control" ng-change="onChangedCity()" ng-model="currentCity " ng-options="city as 
+                                (
+                                    city.val().name_en + '-' + 
+                                    city.val().name_fr + '-' + 
+                                    city.val().name_it + '-' + 
+                                    city.val().name_nl + '-' + 
+                                    city.val().name_ru + '-' + 
+                                    city.val().name_ar + '-' + 
+                                    city.val().name_swiss_fr + '-' + 
+                                    city.val().name_swiss_it + '-' + 
+                                    city.val().name_swiss_nl 
+                                    )
+                                for city in cities track by city.key " ng-disabled="isEditing() "></select>
                                 <!-- <select selectpicker data-style="btn-primary " ng-model="citykey " ng-change="onChangedCity() " ng-disabled="{placekey !==n ull && placekey !==u ndefined} ">
                                     <option ng-repeat="city in cities " value="{{city.key}} ">{{city.val().name}}</option>
                                 </select> -->
@@ -21,15 +33,37 @@
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 " style="background-color: transparent; padding-left: 0px; ">
                                 <label>Categories<span style="color: #E74645; ">*</span></label>
                                 <select selectpicker multiple data-style="btn-primary " ng-model="selectedCategoriesKey " ng-change="onChangedCategory() " required>
-                                    <option ng-repeat="category in cityCategories " value="{{category.key}} ">{{category.val().name}}</option>
+                                    <option ng-repeat="category in cityCategories " value="{{category.key}} ">
+                                        <!-- {{category.val().name}} -->
+                                        {{category.val().name_en}}-
+                                        {{category.val().name_fr}}-
+                                        {{category.val().name_it}}-
+                                        {{category.val().name_nl}}-
+                                        {{category.val().name_ru}}-
+                                        {{category.val().name_ar}}-
+                                        {{category.val().name_swiss_fr}}-
+                                        {{category.val().name_swiss_it}}-
+                                        {{category.val().name_swiss_nl}}
+                                    </option>
                                 </select>
                                 <p class="help-block ">Multiple Selects</p>
                             </div>
                             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 " style="background-color: transparent; padding-left: 0px; ">
                                 <label>Sub Categories<span style="color: #E74645; ">*</span></label>
                                 <select selectpicker multiple data-style="btn-primary " ng-model="selectedSubCategoriesKey " ng-change="onChangedSubCategory() " required>
-                                    <optgroup ng-repeat="category in selectedCategories " label="{{category.val().name}} ">
-                                        <option ng-repeat="sub in dictSubcategories[category.key] " value="{{sub.key}} ">{{sub.name}}</option>
+                                    <optgroup ng-repeat="category in selectedCategories " label="{{category.val().name_en}} ">
+                                        <option ng-repeat="sub in dictSubcategories[category.key] " value="{{sub.key}} ">
+                                            <!-- {{sub.name}} -->
+                                            {{sub.name_en}}-
+                                            {{sub.name_fr}}-
+                                            {{sub.name_it}}-
+                                            {{sub.name_nl}}-
+                                            {{sub.name_ru}}-
+                                            {{sub.name_ar}}-
+                                            {{sub.name_swiss_fr}}-
+                                            {{sub.name_swiss_it}}-
+                                            {{sub.name_swiss_nl}}
+                                        </option>
                                     </optgroup> 
                                 </select>
                                 <p class="help-block ">Multiple Selects</p>
@@ -44,12 +78,85 @@
                         <div class="col-lg-6 ">
                             <div class="form-group ">
                                 <p>
-                                    <label>Name</label>
+                                    <label>Name En</label>
                                     <span style="color: #E74645; ">*</span>
                                 </p>
-                                <input class="form-control " required ng-model="name " autofocus>
+                                <input class="form-control " required ng-model="name_en" autofocus>
                                 <p class="help-block ">Ex: Hoa Hong Hotel</p>
                             </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name Fr</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_fr" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name IT</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_it" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name NL</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_nl" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name RU</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_ru" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name AR</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_ar" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name Fr Swiss</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_swiss_fr" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name IT Swiss</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_swiss_it" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+
+                            <div class="form-group ">
+                                <p>
+                                    <label>Name NL Swiss</label>
+
+                                </p>
+                                <input class="form-control " required ng-model="name_swiss_nl" autofocus>
+                                <p class="help-block ">Ex: Hoa Hong Hotel</p>
+                            </div>
+                            
                             <table width="100% ">
                                 <tr>
                                     <td>
@@ -151,8 +258,48 @@
                                 <p class="help-block ">Time spend for this place. Ex: 3h</p>
                             </div>
                             <div class="form-group ">
-                                <label>Description<span style="color: #E74645; ">*</span></label>
-                                <textarea class="form-control " rows="3 " required ng-model="description "></textarea>
+                                <label>Description En<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_en"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description Fr<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_fr"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description It<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_it"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description Nl<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_nl"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description Ru<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_ru"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description Ar<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_ar"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description Swiss Fr<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_swiss_fr"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description Swiss It<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_swiss_it"></textarea>
+                                <p class="help-block ">Information this place</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Description Swiss Nl<span style="color: #E74645; ">*</span></label>
+                                <textarea class="form-control " rows="3 " required ng-model="description_swiss_nl"></textarea>
                                 <p class="help-block ">Information this place</p>
                             </div>
                             <!-- <div class="form-group ">
@@ -177,8 +324,48 @@
                                 <p class="help-block ">Ex: 29 Hoang Dieu Street, Da Nang</p>
                             </div>
                             <div class="form-group ">
-                                <label>Phone Number</label>
-                                <input class="form-control " ng-model="phonenumber ">
+                                <label>Phone Number En</label>
+                                <input class="form-control " ng-model="phonenumber_en">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number Fr</label>
+                                <input class="form-control " ng-model="phonenumber_fr">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number It</label>
+                                <input class="form-control " ng-model="phonenumber_it">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number Nl</label>
+                                <input class="form-control " ng-model="phonenumber_nl">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number Ru</label>
+                                <input class="form-control " ng-model="phonenumber_ru">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number Ar</label>
+                                <input class="form-control " ng-model="phonenumber_ar">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number Swiss Fr</label>
+                                <input class="form-control " ng-model="phonenumber_swiss_fr">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number Swiss It</label>
+                                <input class="form-control " ng-model="phonenumber_swiss_it">
+                                <p class="help-block ">Ex: +84 4 3984 4478</p>
+                            </div>
+                            <div class="form-group ">
+                                <label>Phone Number Swiss Nl</label>
+                                <input class="form-control " ng-model="phonenumber_swiss_nl">
                                 <p class="help-block ">Ex: +84 4 3984 4478</p>
                             </div>
                             <div class="form-group ">
@@ -204,7 +391,18 @@
                             <div class="form-group ">
                                 <label>Free Facility</label>
                                 <select selectpicker multiple data-style="btn-primary " ng-model="facilitieskey " ng-change="onChangedFacilities() " required width="100% ">
-                                    <option ng-repeat="facility in facilities " value="{{facility.key}} ">{{facility.val().name}}</option>
+                                    <option ng-repeat="facility in facilities " value="{{facility.key}} ">
+                                        <!-- {{facility.val().name}} -->
+                                        {{facility.val().name_en}}-
+                                        {{facility.val().name_fr}}-
+                                        {{facility.val().name_it}}-
+                                        {{facility.val().name_nl}}-
+                                        {{facility.val().name_ru}}-
+                                        {{facility.val().name_ar}}-
+                                        {{facility.val().name_swiss_fr}}-
+                                        {{facility.val().name_swiss_it}}-
+                                        {{facility.val().name_swiss_nl}}
+                                    </option>
                                 </select>
                                 <p class="help-block ">Multi Select</p>
                             </div>

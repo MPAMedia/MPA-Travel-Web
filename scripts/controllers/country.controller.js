@@ -7,7 +7,17 @@
     CountryController.$inject = ['$scope', '$rootScope', '$state', 'CountryService', 'LanguageService', 'DTOptionsBuilder', 'DTColumnDefBuilder']; // jshint
     function CountryController($scope, $rootScope, $state, CountryService, LanguageService, DTOptionsBuilder, DTColumnDefBuilder) {
         $scope.countries = [];
-        $scope.new_country = "";
+        
+        $scope.new_country_en = "";
+        $scope.new_country_fr = "";
+        $scope.new_country_it = "";
+        $scope.new_country_nl = "";
+        $scope.new_country_ru = "";
+        $scope.new_country_ar = "";
+        $scope.new_country_swiss_fr = "";
+        $scope.new_country_swiss_it = "";
+        $scope.new_country_swiss_nl = "";
+
         $scope.new_currency_unit = "";
         $scope.new_display_unit = "";
         $scope.new_display_symbol = "";
@@ -50,7 +60,16 @@
         };
 
         function clearForm() {
-            $scope.new_country = "";
+            // $scope.new_country = "";
+            $scope.new_country_en = "";
+            $scope.new_country_fr = "";
+            $scope.new_country_it = "";
+            $scope.new_country_nl = "";
+            $scope.new_country_ru = "";
+            $scope.new_country_ar = "";
+            $scope.new_country_swiss_fr = "";
+            $scope.new_country_swiss_it = "";
+            $scope.new_country_swiss_nl = "";
             $scope.new_currency_unit = "";
             $scope.new_display_unit = "";
             $scope.new_display_symbol = "";
@@ -58,7 +77,7 @@
         };
 
         $scope.save = function() {
-            if (!$scope.new_country || $scope.new_country === "") {
+            if (!$scope.new_country_en || $scope.new_country_en === "") {
                 alert('Name cannot be empty!')
                 return;
             }
@@ -75,7 +94,17 @@
 
             // set param
             var param = {
-                name: $scope.new_country,
+                // name: $scope.new_country,
+                // name_ar: $scope.new_country_ar,
+                name_en: $scope.new_country_en,
+                name_fr: $scope.new_country_fr,
+                name_it: $scope.new_country_it,
+                name_nl: $scope.new_country_nl,
+                name_ru: $scope.new_country_ru,
+                name_ar: $scope.new_country_ar,
+                name_swiss_fr: $scope.new_country_swiss_fr,
+                name_swiss_it: $scope.new_country_swiss_it,
+                name_swiss_nl: $scope.new_country_swiss_nl,
                 currencyUnit: $scope.new_currency_unit,
                 displayCurrencyUnit: $scope.new_display_unit,
                 displayCurrencySymbol: $scope.new_display_symbol
@@ -88,7 +117,17 @@
 
         $scope.edit = function(index) {
             var item = $scope.countries[index];
-            $scope.new_country = item.val().name;
+            // $scope.new_country = item.val().name;
+            // $scope.new_country_ar = item.val().name_ar;
+            $scope.new_country_en = item.val().name_en;
+            $scope.new_country_fr = item.val().name_fr;
+            $scope.new_country_it = item.val().name_it;
+            $scope.new_country_nl = item.val().name_nl;
+            $scope.new_country_ru = item.val().name_ru;
+            $scope.new_country_ar = item.val().name_ar;
+            $scope.new_country_swiss_fr = item.val().name_swiss_fr;
+            $scope.new_country_swiss_it = item.val().name_swiss_it;
+            $scope.new_country_swiss_nl = item.val().name_swiss_nl;
             // Currency -> Default value
             if (item.val().currencyUnit !== null
                 && item.val().currencyUnit !== undefined

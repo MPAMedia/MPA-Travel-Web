@@ -3,11 +3,21 @@
         <div class="col-lg-12">
             <h1 class="page-header">Sub - Categories</h1>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-8">
             <div class="form-group">
                 <label>Select category</label>
                 <select class="form-control" ng-model="categorykey" ng-change="onchangedcategory()">
-                    <option ng-repeat="category in categories" value="{{category.key}}">{{category.val().name}}</option>
+                    <option ng-repeat="category in categories" value="{{category.key}}">
+                        {{category.val().name_en}}-
+                        {{category.val().name_fr}}-
+                        {{category.val().name_it}}-
+                        {{category.val().name_nl}}-
+                        {{category.val().name_ru}}-
+                        {{category.val().name_ar}}-
+                        {{category.val().name_swiss_fr}}-
+                        {{category.val().name_swiss_it}}-
+                        {{category.val().name_swiss_nl}}
+                    </option>
                 </select>
             </div>
         </div>
@@ -18,7 +28,16 @@
                 <thead>
                     <tr>
                         <th width="50px">No.</th>
-                        <th>Sub-Category Name</th>
+                        <!-- <th>Sub-Category Name</th> -->
+                        <th>Sub-Category Name En</th>
+                        <th>Sub-Category Name Fr</th>
+                        <th>Sub-Category Name IT</th>
+                        <th>Sub-Category Name NL</th>
+                        <th>Sub-Category Name RU</th>
+                        <th>Sub-Category Name AR</th>
+                        <th>Sub-Category Name Fr Swiss</th>
+                        <th>Sub-Category Name IT Swiss</th>
+                        <th>Sub-Category Name NL Swiss</th>
                         <th width="50px">Type</th>
                         <th>Action</th>
                     </tr>
@@ -26,7 +45,16 @@
                 <tbody>
                     <tr class="odd gradeX" ng-repeat="subcategory in subcategories">
                         <td>{{$index + 1}}</td>
-                        <td>{{subcategory.val().name}}</td>
+                        <!-- <td>{{subcategory.val().name}}</td> -->
+                        <td>{{subcategory.val().new_subcategory_en}}</td>
+                        <td>{{subcategory.val().new_subcategory_fr}}</td>
+                        <td>{{subcategory.val().new_subcategory_it}}</td>
+                        <td>{{subcategory.val().new_subcategory_nl}}</td>
+                        <td>{{subcategory.val().new_subcategory_ru}}</td>
+                        <td>{{subcategory.val().new_subcategory_ar}}</td>
+                        <td>{{subcategory.val().new_subcategory_swiss_fr}}</td>
+                        <td>{{subcategory.val().new_subcategory_swiss_it}}</td>
+                        <td>{{subcategory.val().new_subcategory_swiss_nl}}</td>
                         <td>{{subcategory.val().type}}</td>
                         <td width="120px">
                             <button type="button" class="btn btn-warning btn-xs" data-toggle="modal" data-target="#myModal" ng-click="edit($index)">Edit</button>
@@ -48,7 +76,16 @@
                         <div class="modal-body">
                             <div class="form-group" style="width: 300px">
                                 <label>Sub-Category Name</label>
-                                <input id="inputName" class="form-control" ng-model="new_subcategory">
+                                <!-- <input id="inputName" class="form-control" ng-model="new_subcategory"> -->
+                                En <input id="inputName" class="form-control" ng-model="new_subcategory_en">
+                                Fr <input id="inputName" class="form-control" ng-model="new_subcategory_fr">
+                                IT <input id="inputName" class="form-control" ng-model="new_subcategory_it">
+                                NL <input id="inputName" class="form-control" ng-model="new_subcategory_nl">
+                                RU <input id="inputName" class="form-control" ng-model="new_subcategory_ru">
+                                AR <input id="inputName" class="form-control" ng-model="new_subcategory_ar">
+                                Fr Swiss <input id="inputName" class="form-control" ng-model="new_subcategory_swiss_fr">
+                                IT Swiss <input id="inputName" class="form-control" ng-model="new_subcategory_swiss_it">
+                                NL Swiss <input id="inputName" class="form-control" ng-model="new_subcategory_swiss_nl">
                             </div>
                         </div>
                         <div class="modal-footer">

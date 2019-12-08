@@ -3,11 +3,21 @@
         <div class="col-lg-12">
             <h1 class="page-header">City</h1>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-8">
             <div class="form-group">
                 <label>Select Country</label>
                 <select id="selectCountry" class="form-control" ng-model="country_key" ng-change="onchangecountry()" required>
-                    <option ng-repeat="country in countries" value="{{country.key}}">{{country.val().name}}</option>
+                    <option ng-repeat="country in countries" value="{{country.key}}">
+                        {{country.val().name_en}}-
+                        {{country.val().name_fr}}-
+                        {{country.val().name_it}}-
+                        {{country.val().name_nl}}-
+                        {{country.val().name_ru}}-
+                        {{country.val().name_ar}}-
+                        {{country.val().name_swiss_fr}}-
+                        {{country.val().name_swiss_it}}-
+                        {{country.val().name_swiss_nl}}
+                        </option>
                 </select>
             </div>
         </div>
@@ -18,7 +28,16 @@
                 <thead>
                     <tr>
                         <th width="50px">No.</th>
-                        <th>City Name</th>
+                        <th>City Key</th>
+                        <th>City Name En</th>
+                        <th>City Name Fr</th>
+                        <th>City Name IT</th>
+                        <th>City Name NL</th>
+                        <th>City Name RU</th>
+                        <th>City Name AR</th>
+                        <th>City Name Fr Swiss</th>
+                        <th>City Name IT Swiss</th>
+                        <th>City Name NL Swiss</th>
                         <th>Priority</th>
                         <th>Active</th>
                         <th>Action</th>
@@ -27,7 +46,16 @@
                 <tbody>
                     <tr class="odd gradeX" ng-repeat="city in cities">
                         <td>{{$index + 1}}</td>
-                        <td>{{city.key}}<br/>{{city.val().name}}</td>
+                        <td>{{city.key}}</td>
+                        <td>{{city.val().name_en}}</td>
+                        <td>{{city.val().name_fr}}</td>
+                        <td>{{city.val().name_it}}</td>
+                        <td>{{city.val().name_nl}}</td>
+                        <td>{{city.val().name_ru}}</td>
+                        <td>{{city.val().name_ar}}</td>
+                        <td>{{city.val().name_swiss_fr}}</td>
+                        <td>{{city.val().name_swiss_it}}</td>
+                        <td>{{city.val().name_swiss_nl}}</td>
                         <td width="60px">
                             <label style="width: 15px; margin: 0px; height: 25px;"><span style="color: #E74645;">{{city.val().priority ? city.val().priority : 0}}</span></label>
                             <input id="{{'inputPriority' + $index}}" ng-value="{{city.val().priority ? city.val().priority : 0}}" my-enter="changePriority($index)" style="margin: 0px; height: 25px; text-align: left; padding: 0px; width: 40px;">
@@ -57,22 +85,124 @@
                             <h4 class="modal-title" id="myModalLabel" ng-show="key !== null">Edit City ({{key}})</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group" class="col-lg-12">
-                                <label>City Name</label>
-                                <input id="inputName" class="form-control" ng-model="current_city">
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name En</label>
+                                <input id="inputNameEn" class="form-control" ng-model="current_city_en" takefocus>
                             </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name Fr</label>
+                                <input id="inputNameAr" class="form-control" ng-model="current_city_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name IT</label>
+                                <input id="inputNameIt" class="form-control" ng-model="current_city_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name NL</label>
+                                <input id="inputNameNl" class="form-control" ng-model="current_city_nl" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name RU</label>
+                                <input id="inputNameRu" class="form-control" ng-model="current_city_ru" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name AR</label>
+                                <input id="inputNameAr" class="form-control" ng-model="current_city_ar" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name Fr Swiss</label>
+                                <input id="inputNameFrSwiss" class="form-control" ng-model="current_city_swiss_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name IT Swiss</label>
+                                <input id="inputNameItSwiss" class="form-control" ng-model="current_city_swiss_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Name NL Swiss</label>
+                                <input id="inputNameNlSwiss" class="form-control" ng-model="current_city_swiss_nl" takefocus>
+                            </div>
+                            
                             <div class="form-group" class="col-lg-12">
                                 <label>Apple Purchase Id</label>
                                 <input id="inputName" class="form-control" ng-model="current_apple_purchase_id">
                             </div>
-                            <div class="form-group" class="col-lg-12">
-                                <label>Video Intro Url</label>
-                                <input id="inputName" class="form-control" ng-model="current_video_intro_url">
+
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url En</label>
+                                <input id="inputNameEn" class="form-control" ng-model="current_video_intro_url_en" takefocus>
                             </div>
-                            <div class="form-group" class="col-lg-12">
-                                <label>City Intro</label>
-                                <input id="inputIntro" class="form-control" ng-model="current_city_intro">
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url Fr</label>
+                                <input id="inputNameAr" class="form-control" ng-model="current_video_intro_url_fr" takefocus>
                             </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url IT</label>
+                                <input id="inputNameIt" class="form-control" ng-model="current_video_intro_url_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url NL</label>
+                                <input id="inputNameNl" class="form-control" ng-model="current_video_intro_url_nl" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url RU</label>
+                                <input id="inputNameRu" class="form-control" ng-model="current_video_intro_url_ru" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url AR</label>
+                                <input id="inputNameAr" class="form-control" ng-model="current_video_intro_url_ar" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url Fr Swiss</label>
+                                <input id="inputNameFrSwiss" class="form-control" ng-model="current_video_intro_url_swiss_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url IT Swiss</label>
+                                <input id="inputNameItSwiss" class="form-control" ng-model="current_video_intro_url_swiss_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Video Intro Url NL Swiss</label>
+                                <input id="inputNameNlSwiss" class="form-control" ng-model="current_video_intro_url_swiss_nl" takefocus>
+                            </div>
+
+
+                            
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro En</label>
+                                <input id="inputIntroEn" class="form-control" ng-model="current_city_intro_en" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro Fr</label>
+                                <input id="inputIntroAr" class="form-control" ng-model="current_city_intro_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro IT</label>
+                                <input id="inputIntroIt" class="form-control" ng-model="current_city_intro_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro NL</label>
+                                <input id="inputIntroNl" class="form-control" ng-model="current_city_intro_nl" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro RU</label>
+                                <input id="inputIntroRu" class="form-control" ng-model="current_city_intro_ru" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro AR</label>
+                                <input id="inputIntroAr" class="form-control" ng-model="current_city_intro_ar" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro Fr Swiss</label>
+                                <input id="inputIntroFrSwiss" class="form-control" ng-model="current_city_intro_swiss_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro IT Swiss</label>
+                                <input id="inputIntroItSwiss" class="form-control" ng-model="current_city_intro_swiss_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>City Intro NL Swiss</label>
+                                <input id="inputIntroNlSwiss" class="form-control" ng-model="current_city_intro_swiss_nl" takefocus>
+                            </div>
+                            
                             <div class="form-group" class="col-lg-12">
                                 <label>Weather Url</label>
                                 <input id="inputIntro" class="form-control" ng-model="current_weatherUrl">
@@ -110,18 +240,140 @@
                             <!-- banner ad -->
                             <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
                                 <hr/>
-                                <label>Banner Ad Url</label>
-                                <input id="inputName" class="form-control" ng-model="current_banner_url" style="margin-bottom: 10px;">
-                                <a target="_blank" ng-href="{{current_banner_photo_url}}" ng-show="current_banner_photo_url != null && bannerfile == null">
-                                    <img ng-src="{{current_banner_photo_url}}" alt="" width="375" height="130">
+                                <label>Banner Ad Url En</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_en" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_en}}" ng-show="current_banner_photo_url_en != null && bannerfile_en == null">
+                                    <img ng-src="{{current_banner_photo_url_en}}" alt="" width="375" height="130">
                                 </a>
-                                <a ng-show="bannerfile !== null" style="margin-top: 5px;">
-                                    <img ng-src="{{bannerfile}}" alt="" width="375" height="130">
+                                <a ng-show="bannerfile_en !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_en}}" alt="" width="375" height="130">
                                 </a>
                                 <br/>
                                 <label>Banner Ad Display Photo</label>
-                                <input id="inputBanner" type="file" fileread="file_banner" accept="image/*" photofile="bannerfile">
+                                <input id="inputBanner" type="file" fileread="file_banner_en" accept="image/*" photofile="bannerfile_en">
                             </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url Fr</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_fr" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_fr}}" ng-show="current_banner_photo_url_fr != null && bannerfile_fr == null">
+                                    <img ng-src="{{current_banner_photo_url_fr}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_fr !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_fr}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_fr" accept="image/*" photofile="bannerfile_fr">
+                            </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url IT</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_it" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_it}}" ng-show="current_banner_photo_url_it != null && bannerfile_it == null">
+                                    <img ng-src="{{current_banner_photo_url_it}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_it !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_it}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_it" accept="image/*" photofile="bannerfile_it">
+                            </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url NL</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_nl" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_nl}}" ng-show="current_banner_photo_url_nl != null && bannerfile_nl == null">
+                                    <img ng-src="{{current_banner_photo_url_nl}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_nl !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_nl}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_nl" accept="image/*" photofile="bannerfile_nl">
+                            </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url RU</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_ru" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_ru}}" ng-show="current_banner_photo_url_ru != null && bannerfile_ru == null">
+                                    <img ng-src="{{current_banner_photo_url_ru}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_ru !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_ru}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_ru" accept="image/*" photofile="bannerfile_ru">
+                            </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url AR</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_ar" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_ar}}" ng-show="current_banner_photo_url_ar != null && bannerfile_ar == null">
+                                    <img ng-src="{{current_banner_photo_url_ar}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_ar !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_ar}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_ar" accept="image/*" photofile="bannerfile_ar">
+                            </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url Fr Swiss</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_swiss_fr" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_swiss_fr}}" ng-show="current_banner_photo_url_swiss_fr != null && bannerfile_swiss_fr == null">
+                                    <img ng-src="{{current_banner_photo_url_swiss_fr}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_swiss_fr !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_swiss_fr}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_swiss_fr" accept="image/*" photofile="bannerfile_swiss_fr">
+                            </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url IT Swiss</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_swiss_it" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_swiss_it}}" ng-show="current_banner_photo_url_swiss_it != null && bannerfile_swiss_it == null">
+                                    <img ng-src="{{current_banner_photo_url_swiss_it}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_swiss_it !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_swiss_it}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_swiss_it" accept="image/*" photofile="bannerfile_swiss_it">
+                            </div>
+
+                            <div class="form-group" class="col-lg-12" style="margin-top: 20px;">
+                                <hr/>
+                                <label>Banner Ad Url NL Swiss</label>
+                                <input id="inputName" class="form-control" ng-model="current_banner_url_swiss_nl" style="margin-bottom: 10px;">
+                                <a target="_blank" ng-href="{{current_banner_photo_url_swiss_nl}}" ng-show="current_banner_photo_url_swiss_nl != null && bannerfile_swiss_nl == null">
+                                    <img ng-src="{{current_banner_photo_url_swiss_nl}}" alt="" width="375" height="130">
+                                </a>
+                                <a ng-show="bannerfile_swiss_nl !== null" style="margin-top: 5px;">
+                                    <img ng-src="{{bannerfile_swiss_nl}}" alt="" width="375" height="130">
+                                </a>
+                                <br/>
+                                <label>Banner Ad Display Photo</label>
+                                <input id="inputBanner" type="file" fileread="file_banner_swiss_nl" accept="image/*" photofile="bannerfile_swiss_nl">
+                            </div>
+
+                            
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" ng-click="closeDialog()">Close</button>

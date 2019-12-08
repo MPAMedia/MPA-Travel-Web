@@ -99,7 +99,15 @@
             }
             // create param
             var param = {
-                name: name,
+                name_en: name.name_en,
+                name_fr: name.name_fr,
+                name_it: name.name_it,
+                name_nl: name.name_nl,
+                name_ru: name.name_ru,
+                name_ar: name.name_ar,
+                name_swiss_fr: name.name_swiss_fr,
+                name_swiss_it: name.name_swiss_it,
+                name_swiss_nl: name.name_swiss_nl,
                 type: type
             };
             if (key) {

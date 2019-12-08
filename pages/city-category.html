@@ -3,11 +3,21 @@
         <div class="col-lg-12">
             <h1 class="page-header">City - Categories</h1>
         </div>
-        <div class="col-lg-3">
+        <div class="col-lg-8">
             <div class="form-group">
                 <label>Select City</label>
                 <select class="form-control" ng-model="citykey" ng-change="onChangedCity()">
-                    <option ng-repeat="city in cities" value="{{city.key}}">{{city.val().name}}</option>
+                    <option ng-repeat="city in cities" value="{{city.key}}">
+                        {{city.val().name_en}}-
+                        {{city.val().name_fr}}-
+                        {{city.val().name_it}}-
+                        {{city.val().name_nl}}-
+                        {{city.val().name_ru}}-
+                        {{city.val().name_ar}}-
+                        {{city.val().name_swiss_fr}}-
+                        {{city.val().name_swiss_it}}-
+                        {{city.val().name_swiss_nl}}
+                    </option>
                 </select>
             </div>
         </div>
@@ -18,7 +28,16 @@
                 <thead>
                     <tr>
                         <th width="50px">No.</th>
-                        <th>Category Name</th>
+                        <!-- <th>Category Name</th> -->
+                        <th>Category Name En</th>
+                        <th>Category Name Fr</th>
+                        <th>Category Name IT</th>
+                        <th>Category Name NL</th>
+                        <th>Category Name RU</th>
+                        <th>Category Name AR</th>
+                        <th>Category Name Fr Swiss</th>
+                        <th>Category Name IT Swiss</th>
+                        <th>Category Name NL Swiss</th>
                         <th>Order</th>
                         <th>Action</th>
                     </tr>
@@ -26,7 +45,16 @@
                 <tbody>
                     <tr class="odd gradeX" ng-repeat="citycat in city_categories">
                         <td>{{$index + 1}}</td>
-                        <td>{{citycat.name}}</td>
+                        <!-- <td>{{citycat.name}}</td> -->
+                        <td>{{citycat.name_en}}</td>
+                        <td>{{citycat.name_fr}}</td>
+                        <td>{{citycat.name_it}}</td>
+                        <td>{{citycat.name_nl}}</td>
+                        <td>{{citycat.name_ru}}</td>
+                        <td>{{citycat.name_ar}}</td>
+                        <td>{{citycat.name_swiss_fr}}</td>
+                        <td>{{citycat.name_swiss_it}}</td>
+                        <td>{{citycat.name_swiss_nl}}</td>
                         <td width="60px">
                             <label style="width: 15px; margin: 0px; height: 25px;"><span style="color: #E74645;">{{citycat.val.order ? citycat.val.order : 0}}</span></label>
                             <input id="{{'inputOrder' + $index}}" ng-value="{{citycat.val.order ? citycat.val.order : 0}}" my-enter="changeCityCatOrder($index)" style="margin: 0px; height: 25px; text-align: left; padding: 0px; width: 40px;">
@@ -56,7 +84,18 @@
                                         <span>{{info.val().name}}</span>
                                     </td> -->
                                     <td>
-                                        <label class="control control--checkbox"><span style="font-size: 15px;">{{info.val().name}}</span>
+                                        <label class="control control--checkbox"><span style="font-size: 15px;">
+                                            <!-- {{info.val().name}} -->
+                                            {{info.val().name_en}}-
+                                            {{info.val().name_fr}}-
+                                            {{info.val().name_it}}-
+                                            {{info.val().name_nl}}-
+                                            {{info.val().name_ru}}-
+                                            {{info.val().name_ar}}-
+                                            {{info.val().name_swiss_fr}}-
+                                            {{info.val().name_swiss_it}}-
+                                            {{info.val().name_swiss_nl}}
+                                        </span>
                                             <input type="checkbox" ng-model="selected[info.key]" ng-disabled="existed[info.key]"/>
                                             <div class="control__indicator"></div>
                                         </label>

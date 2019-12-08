@@ -34,26 +34,26 @@
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/3.3.0/firebase.js"></script>
     <script>
-        // Initialize Firebase
-        // ---------- CONFIG TRID ----------
-        var config = {
-            apiKey: "AIzaSyAHt0ckWi8WbpGB4F0DJG7Ia4NFetaAOe4",
-            authDomain: "tridme-demo.firebaseapp.com",
-            databaseURL: "https://tridme-demo.firebaseio.com",
-            projectId: "tridme-demo",
-            storageBucket: "tridme-demo.appspot.com",
-            messagingSenderId: "1022562414450"
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyC7OosZpOSSW3FWQbHyElFX_LR_try-Zyc",
+            authDomain: "mpa-travel.firebaseapp.com",
+            databaseURL: "https://mpa-travel.firebaseio.com",
+            projectId: "mpa-travel",
+            storageBucket: "mpa-travel.appspot.com",
+            messagingSenderId: "35857925463",
+            appId: "1:35857925463:web:02cedff7ae4f85b9f52a12",
+            measurementId: "G-QX1E5P2CRX"
         };
-        // -----------------------------------
-
-        firebase.initializeApp(config);
-    </script>
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        firebase.analytics();
+      </script>
     <!-- ***************************************************************** -->
 
     <script>
         (function(i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function() {
+            i['GoogleAnalyticsObject'] = r;            i[r] = i[r] || function() {
                 (i[r].q = i[r].q || []).push(arguments)
             }, i[r].l = 1 * new Date();
             a = s.createElement(o),

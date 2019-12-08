@@ -39,13 +39,31 @@
                     var citycat = {
                       val: data.val(),
                       key: data.key,
-                      name: data.val().key
+                    //   name: data.val().key,
+                      name_en: data.val().key,
+                      name_fr: data.val().key,
+                      name_it: data.val().key,
+                      name_nl: data.val().key,
+                      name_ru: data.val().key,
+                      name_ar: data.val().key,
+                      name_swiss_fr: data.val().key,
+                      name_swiss_it: data.val().key,
+                      name_swiss_nl: data.val().key
                     };
                     for (var i = 0; i < CategoryInfoService.categories.length; i++) {
                         var info = CategoryInfoService.categories[i];
                         if (info.key === data.val().category_key) {
                             factory.categories.push(info);
-                            citycat.name = info.val().name;
+                            // citycat.name = info.val().name;
+                            citycat.name_en = info.val().name_en;
+                            citycat.name_fr = info.val().name_fr;
+                            citycat.name_it = info.val().name_it;
+                            citycat.name_nl = info.val().name_nl;
+                            citycat.name_ru = info.val().name_ru;
+                            citycat.name_ar = info.val().name_ar;
+                            citycat.name_swiss_fr = info.val().name_swiss_fr;
+                            citycat.name_swiss_it = info.val().name_swiss_it;
+                            citycat.name_swiss_nl = info.val().name_swiss_nl;
                             break;
                         }
                     }
@@ -59,7 +77,16 @@
                           var citycat = {
                             val: data.val(),
                             key: obj.key,
-                            name: obj.name
+                            // name: obj.name
+                            name_en: obj.name_en,
+                            name_fr: obj.name_fr,
+                            name_it: obj.name_it,
+                            name_nl: obj.name_nl,
+                            name_ru: obj.name_ru,
+                            name_ar: obj.name_ar,
+                            name_swiss_fr: obj.name_swiss_fr,
+                            name_swiss_it: obj.name_swiss_it,
+                            name_swiss_nl: obj.name_swiss_nl
                           };
                           factory.city_categories[i] = citycat;
                             break;

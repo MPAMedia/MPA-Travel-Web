@@ -140,10 +140,26 @@
             }
             // create param
             var param = {
-                name: name,
+                name_en: name.name_en,
+                name_fr: name.name_fr,
+                name_it: name.name_it,
+                name_nl: name.name_nl,
+                name_ru: name.name_ru,
+                name_ar: name.name_ar,
+                name_swiss_fr: name.name_swiss_fr,
+                name_swiss_it: name.name_swiss_it,
+                name_swiss_nl: name.name_swiss_nl,
                 type: type,
                 count: count,
-                priceUnit: priceUnit
+                priceUnit_en: priceUnit.priceUnit_en,
+                priceUnit_fr: priceUnit.priceUnit_fr,
+                priceUnit_it: priceUnit.priceUnit_it,
+                priceUnit_nl: priceUnit.priceUnit_nl,
+                priceUnit_ru: priceUnit.priceUnit_ru,
+                priceUnit_ar: priceUnit.priceUnit_ar,
+                priceUnit_swiss_fr: priceUnit.priceUnit_swiss_fr,
+                priceUnit_swiss_it: priceUnit.priceUnit_swiss_it,
+                priceUnit_swiss_nl: priceUnit.priceUnit_swiss_nl
             };
             factory.callback = callback;
             if (key) {
@@ -156,7 +172,16 @@
         function UpdateCount(data, value) {
             var count = data.val().count + value;
             var param = {
-                name: data.val().name,
+                // name: data.val().name,
+                name_en: name.name_en,
+                name_fr: name.name_fr,
+                name_it: name.name_it,
+                name_nl: name.name_nl,
+                name_ru: name.name_ru,
+                name_ar: name.name_ar,
+                name_swiss_fr: name.name_swiss_fr,
+                name_swiss_it: name.name_swiss_it,
+                name_swiss_nl: name.name_swiss_nl,
                 type: data.val().type,
                 count: count
             };

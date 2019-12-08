@@ -10,7 +10,15 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Category</th>
+                        <th>Category En</th>
+                        <th>Category Fr</th>
+                        <th>Category IT</th>
+                        <th>Category NL</th>
+                        <th>Category RU</th>
+                        <th>Category AR</th>
+                        <th>Category Fr Swiss</th>
+                        <th>Category IT Swiss</th>
+                        <th>Category NL Swiss</th>
                         <th>Type</th>
                         <th>Priority</th>
                         <th>Action</th>
@@ -19,7 +27,15 @@
                 <tbody>
                     <tr class="odd gradeX" ng-repeat="category in categories">
                         <td style="width: 40px;">{{$index + 1}}</td>
-                        <td>{{category.val().name}}</td>
+                        <td>{{category.val().name_en}}</td>
+                        <td>{{category.val().name_fr}}</td>
+                        <td>{{category.val().name_it}}</td>
+                        <td>{{category.val().name_nl}}</td>
+                        <td>{{category.val().name_ru}}</td>
+                        <td>{{category.val().name_ar}}</td>
+                        <td>{{category.val().name_swiss_fr}}</td>
+                        <td>{{category.val().name_swiss_it}}</td>
+                        <td>{{category.val().name_swiss_nl}}</td>
                         <td style="width: 50px;">{{category.val().type}}</td>
                         <td width="60px">
                             <label style="width: 15px; margin: 0px; height: 25px;">
@@ -45,13 +61,78 @@
                             <h4 class="modal-title" id="myModalLabel" ng-show="key !== null">Edit Category ({{key}})</h4>
                         </div>
                         <div class="modal-body">
-                            <div class="form-group" style="width: 300px">
-                                <label>Category Name</label>
-                                <input id="inputName" class="form-control" ng-model="new_category">
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name En</label>
+                                <input id="inputNameEn" class="form-control" ng-model="new_category_en" takefocus>
                             </div>
-                            <div class="form-group" style="width: 300px">
-                                <label>Price Unit(Ex: Night, Person, Ticket)</label>
-                                <input id="inputPriceUnit" class="form-control" ng-model="new_price_unit">
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name Fr</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_category_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name IT</label>
+                                <input id="inputNameIt" class="form-control" ng-model="new_category_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name NL</label>
+                                <input id="inputNameNl" class="form-control" ng-model="new_category_nl" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name RU</label>
+                                <input id="inputNameRu" class="form-control" ng-model="new_category_ru" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name AR</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_category_ar" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name Fr Swiss</label>
+                                <input id="inputNameFrSwiss" class="form-control" ng-model="new_category_swiss_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name IT Swiss</label>
+                                <input id="inputNameItSwiss" class="form-control" ng-model="new_category_swiss_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Category Name NL Swiss</label>
+                                <input id="inputNameNlSwiss" class="form-control" ng-model="new_category_swiss_nl" takefocus>
+                            </div>
+
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) En</label>
+                                <input id="inputNameEn" class="form-control" ng-model="new_price_unit_en" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) Fr</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_price_unit_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) IT</label>
+                                <input id="inputNameIt" class="form-control" ng-model="new_price_unit_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) NL</label>
+                                <input id="inputNameNl" class="form-control" ng-model="new_price_unit_nl" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) RU</label>
+                                <input id="inputNameRu" class="form-control" ng-model="new_price_unit_ru" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) AR</label>
+                                <input id="inputNameAr" class="form-control" ng-model="new_price_unit_ar" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) Fr Swiss</label>
+                                <input id="inputNameFrSwiss" class="form-control" ng-model="new_price_unit_swiss_fr" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) IT Swiss</label>
+                                <input id="inputNameItSwiss" class="form-control" ng-model="new_price_unit_swiss_it" takefocus>
+                            </div>
+                            <div class="form-group" style="width: 320px; min-width: 200px;">
+                                <label>Price Unit(Ex: Night, Person, Ticket) NL Swiss</label>
+                                <input id="inputNameNlSwiss" class="form-control" ng-model="new_price_unit_swiss_nl" takefocus>
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -126,7 +126,18 @@
                     }
                 }
             }
-            var param = { name: name};
+            // var param = { name: name};
+            var param = {
+                new_subcategory_en: name.name_en,
+                new_subcategory_fr: name.name_fr,
+                new_subcategory_it: name.name_it,
+                new_subcategory_nl: name.name_nl,
+                new_subcategory_ru: name.name_ru,
+                new_subcategory_ar: name.name_ar,
+                new_subcategory_swiss_fr: name.name_swiss_fr,
+                new_subcategory_swiss_it: name.name_swiss_it,
+                new_subcategory_swiss_nl: name.name_swiss_nl,
+            };
             if (key) {
                 factory.ref.child(key).set(param);
             } else {

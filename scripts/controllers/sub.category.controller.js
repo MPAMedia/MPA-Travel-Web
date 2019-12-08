@@ -9,7 +9,16 @@
         $scope.categories = [];
         $scope.categorykey = null;
         $scope.subcategories = [];
-        $scope.new_subcategory = null;
+        // $scope.new_subcategory = null;
+        $scope.new_subcategory_en = null;
+        $scope.new_subcategory_fr = null;
+        $scope.new_subcategory_it = null;
+        $scope.new_subcategory_nl = null;
+        $scope.new_subcategory_ru = null;
+        $scope.new_subcategory_ar = null;
+        $scope.new_subcategory_swiss_fr = null;
+        $scope.new_subcategory_swiss_it = null;
+        $scope.new_subcategory_swiss_nl = null;
         $scope.key = null;
         // datatables options
         $scope.dtOptions = DTOptionsBuilder.newOptions().withDOM('C<"clear">lfrtip');
@@ -62,16 +71,36 @@
 
         // dialog add new
         $scope.close = function() {
-            $scope.new_subcategory = "";
+            // $scope.new_subcategory = "";
+            $scope.new_subcategory_en = "";
+            $scope.new_subcategory_fr = "";
+            $scope.new_subcategory_it = "";
+            $scope.new_subcategory_nl = "";
+            $scope.new_subcategory_ru = "";
+            $scope.new_subcategory_ar = "";
+            $scope.new_subcategory_swiss_fr = "";
+            $scope.new_subcategory_swiss_it = "";
+            $scope.new_subcategory_swiss_nl = "";
             $scope.key = null;
         };
 
         $scope.save = function() {
-            if (!$scope.new_subcategory || $scope.new_subcategory === "") {
+            if (!$scope.new_subcategory_en || $scope.new_subcategory_en === "") {
                 alert('Name cannot be empty!')
                 return;
             }
-            SubCategoryService.AddSubCategory($scope.key, $scope.new_subcategory);
+            var params ={};
+            params.name_en = $scope.new_subcategory_en;
+            params.name_fr = $scope.new_subcategory_fr;
+            params.name_it = $scope.new_subcategory_it;
+            params.name_nl = $scope.new_subcategory_nl;
+            params.name_ru = $scope.new_subcategory_ru;
+            params.name_ar = $scope.new_subcategory_ar;
+            params.name_swiss_fr = $scope.new_subcategory_swiss_fr;
+            params.name_swiss_it = $scope.new_subcategory_swiss_it;
+            params.name_swiss_nl = $scope.new_subcategory_swiss_nl;
+
+            SubCategoryService.AddSubCategory($scope.key, params);
             $scope.new_subcategory = null;
             $scope.key = null;
             $('#myModal').modal('hide');

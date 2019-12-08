@@ -41,14 +41,18 @@
                 CityService.InitFirebase(country.key, function(changed) {
                     if (changed) {
                         $rootScope.$apply(function() {
-                            parsecity(index, CityService.cities);
+                            $scope.cities = CityService.cities;
+                            loadcategory(0);
+                            // parsecity(index, CityService.cities);
                         });
                     } else {
-                        parsecity(index, CityService.cities);
+                        $scope.cities = CityService.cities;
+                        loadcategory(0);
+          // parsecity(index, CityService.cities);
                     }
                 });
             }
-            else if($scope.cities.length > 0){
+                          else if($scope.cities.length > 0){
                 // done
                 $scope.citykey = $scope.cities[0].key;
                 finishgetdata();

@@ -12,7 +12,19 @@
         $scope.cityPlaces = [];
         $scope.currentcity = null;
         $scope.selectedCategory = null;
-
+        $scope.supported_langs = [
+            {"perfix":"_en","display":"En"},
+            {"perfix":"_fr","display":"Fr"},
+            {"perfix":"_it","display":"It"},
+            {"perfix":"_nl","display":"Nl"},
+            {"perfix":"_ru","display":"Ru"},
+            {"perfix":"_ar","display":"Ar"},
+            {"perfix":"_swiss_fr","display":"Fr Swiss"},
+            {"perfix":"_swiss_it","display":"It Swiss"},
+            {"perfix":"_swiss_nl","display":"Nl Swiss"}
+       ];
+     
+     
         // datatables options
         $scope.dtOptions = DTOptionsBuilder.newOptions().withDOM('C<"clear">lfrtip');
         $scope.dtColumnDefs = [
@@ -90,7 +102,19 @@
             $scope.selectedCategory = null
             for (var i = 0; i < CityCategoryService.categories.length; i++) {
                 var c = CityCategoryService.categories[i];
-                $scope.categories.push({ key: c.key, name: c.val().name });
+                $scope.categories.push({ 
+                    key: c.key,
+                    // name: c.val().name
+                    name_en: c.val().name_en,
+                    name_fr: c.val().name_fr,
+                    name_it: c.val().name_it,
+                    name_nl: c.val().name_nl,
+                    name_ru: c.val().name_ru,
+                    name_ar: c.val().name_ar,
+                    name_swiss_fr: c.val().name_swiss_fr,
+                    name_swiss_it: c.val().name_swiss_it,
+                    name_swiss_nl: c.val().name_swiss_nl,
+                });
             }
             if ($scope.categories.length > 0) {
                 if (SharedService.selectedCategoryKey) {
@@ -132,6 +156,7 @@
             var all = PlaceService.places[$scope.currentcity.key];
             // clear place
             $scope.cityPlaces = [];
+            if(!all) return;
             // add
             for (var i = all.length - 1; i >= 0; i--) {
                 var p = all[i];

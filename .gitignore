@@ -1,6 +1,5 @@
 .DS_STORE
 node_modules
-/dist/
 e2e_test.*
 *.log
 node_modules/
